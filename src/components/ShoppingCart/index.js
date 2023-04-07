@@ -1,28 +1,37 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { BrowserRouter as Router } from "react-router-dom";
+import React, { useState } from 'react';
+import './ShoppingCart.css';
 
+const ShoppingCart = () => {
+  const [cartItems, setCartItems] = useState([]);
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+  const getTotal = () => {
+    return cartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
+  };
 
-ReactDOM.render(
-  <React.StrictMode>
-    <Router>
-      <App />
-    </Router>
-  </React.StrictMode>,
-  document.getElementById("root")
-);
+  return (
+    <div className="shopping-cart">
+      <h2>Shopping Cart</h2>
+      {cartItems.length === 0 ? (
+        <p>Your cart is empty.</p>
+      ) : (
+        <>
+          <ul>
+            {cartItems.map(item => (
+              <li key={item.id}>
+                <div>{item.name}</div>
+                <div>Price: ${item.price}</div>
+                <div>Quantity: {item.quantity}</div>
+              </li>
+            ))}
+          </ul>
+          <div className="total">
+            <strong>Total: ${getTotal().toFixed(2)}</strong>
+          </div>
+          <button className="checkout-button">Proceed to Checkout</button>
+        </>
+      )}
+    </div>
+  );
+}
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+export default ShoppingCart;
