@@ -1,5 +1,6 @@
 {
-    "watch": "data/db.json",
+    "watch": "src/data/db.json",
     "port": 5000,
-    "routes": "data/routes.json"
+    "routes": "src/data/routes.json"
   }
+  
