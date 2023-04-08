@@ -1,0 +1,20 @@
+{
+    "products": [
+      {
+        "id": 1,
+        "name": "Sweater",
+        "price": 45.99,
+        "imageUrl": "path/to/sweater-image.jpg",
+        "description": "A cozy and warm sweater for winter."
+      },
+      {
+        "id": 2,
+        "name": "Dress",
+        "price": 59.99,
+        "imageUrl": "path/to/dress-image.jpg",
+        "description": "A stylish and elegant dress for special occasions."
+      }
+    ],
+    "users": [],
+    "orders": []
+  }
